@@ -1,6 +1,31 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+const containerVariants = {
+  hidden: {
+    opacity: 0,
+    x: '100vw',
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { type: 'spring', delay: 0.5 },
+  },
+};
+
+const buttonVariants = {
+  hover: {
+    scale: 1.1,
+    textShadow: '0px 0px 8px rgb(255,255,255)',
+    boxShadow: '0px 0px 8px rgb(255,255,255)',
+    transition: {
+      duration: 0.4,
+      repeat: Infinity,
+      repeatType: 'reverse',
+    },
+  },
+};
+
 // TODO: fix this any type
 const Toppings = ({ addTopping, pizza }: any) => {
   let toppings = [
@@ -13,7 +38,12 @@ const Toppings = ({ addTopping, pizza }: any) => {
   ];
 
   return (
-    <div className="toppings container">
+    <motion.div
+      className="toppings container"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <h3>Step 2: Choose Toppings</h3>
       <ul>
         {toppings.map(topping => {
@@ -35,17 +65,11 @@ const Toppings = ({ addTopping, pizza }: any) => {
       </ul>
 
       <Link to="/order">
-        <motion.button
-          whileHover={{
-            scale: 1.1,
-            textShadow: '0px 0px 8px rgb(255,255,255)',
-            boxShadow: '0px 0px 8px rgb(255,255,255)',
-          }}
-        >
+        <motion.button variants={buttonVariants} whileHover="hover">
           Order
         </motion.button>
       </Link>
-    </div>
+    </motion.div>
   );
 };
 
