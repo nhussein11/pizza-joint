@@ -1,13 +1,12 @@
 /* fonts */
 @font-face {
-  font-family: "Quicksand";
-  src: url("/Quicksand-Light.woff2") format("woff2"),
-    url("/Quicksand-Light.woff") format("woff");
+  font-family: 'Quicksand';
+  src: url('/Quicksand-Light.woff2') format('woff2'),
+    url('/Quicksand-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
 }
 
-/* reset & common styles */
 body,
 ul,
 h1,
@@ -20,7 +19,7 @@ div {
   margin: 0;
   padding: 0;
   color: white;
-  font-family: "Quicksand";
+  font-family: 'Quicksand';
   letter-spacing: 2px;
   list-style-type: none;
   text-decoration: none;
@@ -59,7 +58,6 @@ button {
   cursor: pointer;
 }
 
-/* header */
 header {
   display: flex;
   padding: 40px;
@@ -83,12 +81,12 @@ header .pizza-svg {
   stroke-linecap: round;
 }
 
-/* lists */
 li span.active {
   font-weight: bold;
+  color: #f8e112;
 }
 li span.active::before {
-  content: ">";
+  content: '>';
   position: relative;
   top: -2px;
   margin-right: 6px;
@@ -96,7 +94,6 @@ li span.active::before {
   display: inline-block;
 }
 
-/* pages */
 .home h2 {
   font-size: 2em;
   margin-bottom: 30px;
