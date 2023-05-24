@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 const Home = () => {
   return (
     <motion.div
@@ -7,13 +7,20 @@ const Home = () => {
       animate={{
         opacity: 1,
       }}
+      transition={{ delay: 1, duration: 1.5 }}
       className="home container"
     >
-      <motion.h2 whileHover={{ scale: 1.2, cursor: "default" }}>
+      <motion.h2 whileHover={{ scale: 1.2, cursor: 'default' }}>
         Welcome to Pizza Joint
       </motion.h2>
       <Link to="/base">
-        <motion.button animate={{ scale: 1.5 }}>
+        <motion.button
+          whileHover={{
+            scale: 1.1,
+            textShadow: '0px 0px 8px rgb(255,255,255)',
+            boxShadow: '0px 0px 8px rgb(255,255,255)',
+          }}
+        >
           Create Your Pizza
         </motion.button>
       </Link>
