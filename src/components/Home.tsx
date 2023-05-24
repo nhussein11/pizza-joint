@@ -1,6 +1,20 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+const homeContainerVariants = {
+  hidden: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+    transition: { delay: 1, duration: 1.5 },
+  },
+  exit: {
+    x: '-100vw',
+    transition: { ease: 'easeInOut' },
+  },
+};
+
 const buttonVariants = {
   hover: {
     scale: 1.1,
@@ -17,11 +31,10 @@ const buttonVariants = {
 const Home = () => {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-      }}
-      transition={{ delay: 1, duration: 1.5 }}
+      variants={homeContainerVariants}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
       className="home container"
     >
       <motion.h2 whileHover={{ scale: 1.2, cursor: 'default' }}>
