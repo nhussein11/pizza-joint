@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 //TODO: fix this any
@@ -19,11 +20,15 @@ const Base = ({ addBase, pizza }: any) => {
       </ul>
 
       {pizza.base && (
-        <div className="next">
+        <motion.div
+          initial={{ x: "-100vw" }}
+          animate={{ x: 0 }}
+          className="next"
+        >
           <Link to="/toppings">
             <button>Next</button>
           </Link>
-        </div>
+        </motion.div>
       )}
     </div>
   );
