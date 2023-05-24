@@ -30,7 +30,7 @@ function App() {
   return (
     <>
       <Header />
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
           <Route
             path="/base"
