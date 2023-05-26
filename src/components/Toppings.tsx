@@ -20,6 +20,18 @@ const containerVariants: Variants = {
   },
 };
 
+const toppingItemVariants: Variants = {
+  hover: {
+    scale: 1.3,
+    color: '#f8e112',
+    originX: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+    },
+  },
+};
+
 const buttonVariants: Variants = {
   hover: {
     scale: 1.1,
@@ -64,11 +76,8 @@ const Toppings = () => {
             <motion.li
               key={topping}
               onClick={() => handleTopping(topping)}
-              whileHover={{
-                scale: 1.3,
-                originX: 0,
-                color: '#f8e112',
-              }}
+              variants={toppingItemVariants}
+              whileHover="hover"
             >
               <span className={spanClass}>{topping}</span>
             </motion.li>

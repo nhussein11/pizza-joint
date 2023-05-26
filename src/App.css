@@ -88,6 +88,7 @@ header .pizza-svg {
 /* lists */
 li span.active {
   font-weight: bold;
+  color: #f8e112;
 }
 
 li span.active::before {
