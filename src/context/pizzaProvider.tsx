@@ -16,23 +16,13 @@ const PizzaProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(pizzaReducer, pizzaState);
 
   const addBase = (base: string) => {
-    console.log('fromr reducer');
     dispatch({ type: PizzaActionType.ADD_BASE, payload: base });
-    console.log('after reducer');
   };
 
-  const addTopping = (topping: string) => {
-    dispatch({ type: PizzaActionType.ADD_TOPPING, payload: topping });
+  const handleTopping = (topping: string) => {
+    dispatch({ type: PizzaActionType.HANDLE_TOPPING, payload: topping });
   };
 
-  const removeTopping = (topping: string) => {
-    dispatch({ type: PizzaActionType.REMOVE_TOPPING, payload: topping });
-  };
-
-  // const clearToppings = () => {
-  //   dispatch({ type: PizzaActionType.CLEAR_TOPPINGS });
-  // };
-  //
   const clearPizza = () => {
     dispatch({ type: PizzaActionType.CLEAR_PIZZA });
   };
@@ -42,8 +32,7 @@ const PizzaProvider = ({ children }: any) => {
       value={{
         pizzaState: state,
         addBase,
-        addTopping,
-        removeTopping,
+        handleTopping,
         clearPizza,
       }}
     >

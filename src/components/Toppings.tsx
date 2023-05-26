@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { PizzaContext } from '../context/pizzaProvider';
 
 const containerVariants = {
   hidden: {
@@ -39,18 +40,13 @@ const TOPPINGS = [
   'extra cheese',
   'tomatoes',
 ];
-// TODO: fix this any type
+
 const Toppings = () => {
-  // const { pizza } = useContext(appStore);
-  // const { addTopping } = pizzaReducer();
-  //
-  const pizza = {
-    base: '',
-    toppings: [],
-  };
-  const addTopping = (topping: string) => {
-    console.log('addTopping', topping);
-  };
+  const {
+    pizzaState: { pizza },
+    handleTopping,
+  } = useContext(PizzaContext);
+
   return (
     <motion.div
       className="toppings container"
@@ -66,7 +62,7 @@ const Toppings = () => {
           return (
             <motion.li
               key={topping}
-              onClick={() => addTopping(topping)}
+              onClick={() => handleTopping(topping)}
               whileHover={{
                 scale: 1.3,
                 originX: 0,

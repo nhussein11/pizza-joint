@@ -29,10 +29,10 @@ const childVariants = {
   },
 };
 
-// TODO: fix this any type
-const Order = ({ pizza }: any) => {
-  const pizzaState = useContext(PizzaContext);
-  console.log(pizzaState);
+const Order = () => {
+  const {
+    pizzaState: { pizza },
+  } = useContext(PizzaContext);
 
   return (
     <motion.div

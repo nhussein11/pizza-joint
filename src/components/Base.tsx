@@ -57,7 +57,6 @@ const Base = () => {
       animate="visible"
       exit="exit"
     >
-      <pre> {JSON.stringify(pizzaState, null, 2)}</pre>
       <h3>Step 1: Choose Your Base</h3>
       <ul>
         {BASES.map(base => {

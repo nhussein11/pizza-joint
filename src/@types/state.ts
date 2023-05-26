@@ -8,7 +8,6 @@ export type PizzaState = {
 export type PizzaContextType = {
   pizzaState: PizzaState;
   addBase: (base: string) => void;
-  addTopping: (topping: string) => void;
-  removeTopping: (topping: string) => void;
+  handleTopping: (topping: string) => void;
   clearPizza: () => void;
 };
