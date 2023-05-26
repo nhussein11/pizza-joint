@@ -4,8 +4,8 @@ This is a simple React application that serves as a testing and practice ground 
 
 ## Features
 
-    Demonstrates basic usage of Framer Motion library.
-    Easy-to-understand code structure and comments for learning purposes.
+- Demonstrates basic usage of Framer Motion library.
+- Easy-to-understand code structure and comments for learning purposes.
 
 ## Prerequisites
 
