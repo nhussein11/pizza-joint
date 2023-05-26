@@ -56,11 +56,11 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 Please ensure that your code adheres to the existing code style and conventions.
 
-## License
-
-This project is licensed under the MIT License. You can find the details in the LICENSE file.
-
 ## Acknowledgements
 
 - The Framer Motion library: https://www.framer.com/motion/
 - React: https://reactjs.org/
+
+## License
+
+This project is licensed under the MIT License.
