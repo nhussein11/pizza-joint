@@ -1,13 +1,10 @@
 import { AnimatePresence } from 'framer-motion';
-import { useContext } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import { Base, Header, Home, Order, Toppings } from './components';
-import { PizzaContext } from './context/pizzaProvider';
 
 const App = () => {
   const location = useLocation();
-  const { pizzaState } = useContext(PizzaContext);
 
   return (
     <>

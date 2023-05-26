@@ -1,8 +1,9 @@
-import { motion } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 import { useContext } from 'react';
 import { PizzaContext } from '../context/pizzaProvider';
+import { PizzaContextType } from '../@types/state';
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {
     opacity: 0,
     x: '100vw',
@@ -20,7 +21,7 @@ const containerVariants = {
   },
 };
 
-const childVariants = {
+const childVariants: Variants = {
   hidden: {
     opacity: 0,
   },
@@ -32,7 +33,7 @@ const childVariants = {
 const Order = () => {
   const {
     pizzaState: { pizza },
-  } = useContext(PizzaContext);
+  } = useContext<PizzaContextType>(PizzaContext);
 
   return (
     <motion.div

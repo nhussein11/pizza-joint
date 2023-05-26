@@ -1,9 +1,10 @@
-import { motion } from 'framer-motion';
+import { Variants, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { PizzaContext } from '../context/pizzaProvider';
 import { useContext } from 'react';
+import { PizzaContextType } from '../@types/state';
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: {
     opacity: 0,
     x: '100vw',
@@ -19,7 +20,7 @@ const containerVariants = {
   },
 };
 
-const nextVariants = {
+const nextVariants: Variants = {
   hidden: {
     x: '-100vw',
   },
@@ -29,7 +30,7 @@ const nextVariants = {
   },
 };
 
-const buttonVariants = {
+const buttonVariants: Variants = {
   hover: {
     scale: 1.1,
     textShadow: '0px 0px 8px rgb(255,255,255)',
@@ -43,8 +44,9 @@ const buttonVariants = {
 };
 
 const BASES = ['Classic', 'Thin & Crispy', 'Thick Crust'];
+
 const Base = () => {
-  const { pizzaState, addBase } = useContext(PizzaContext);
+  const { pizzaState, addBase } = useContext<PizzaContextType>(PizzaContext);
 
   const handleAddBase = (base: string) => {
     addBase(base);
