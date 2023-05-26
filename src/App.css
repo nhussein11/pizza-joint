@@ -44,8 +44,7 @@ button {
 
 .container {
   max-width: 300px;
-  margin: 0 auto;
-  height: 100%;
+  margin: 5% auto;
 }
 
 .container h3 {
