@@ -50,7 +50,7 @@ const Toppings = () => {
 
   return (
     <motion.div
-      className="toppings container"
+      className="container"
       variants={containerVariants}
       initial="hidden"
       animate="visible"
@@ -59,7 +59,7 @@ const Toppings = () => {
       <h3>Step 2: Choose Toppings</h3>
       <ul>
         {TOPPINGS.map(topping => {
-          let spanClass = pizza.toppings.includes(topping) ? 'active' : '';
+          const spanClass = pizza.toppings.includes(topping) ? 'active' : '';
           return (
             <motion.li
               key={topping}

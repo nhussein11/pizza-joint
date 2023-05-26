@@ -20,6 +20,18 @@ const containerVariants: Variants = {
   },
 };
 
+const toppingItemVariants: Variants = {
+  hover: {
+    scale: 1.3,
+    color: '#f8e112',
+    originX: 0,
+    transition: {
+      type: 'spring',
+      stiffness: 300,
+    },
+  },
+};
+
 const nextVariants: Variants = {
   hidden: {
     x: '-100vw',
@@ -46,11 +58,11 @@ const buttonVariants: Variants = {
 const BASES = ['Classic', 'Thin & Crispy', 'Thick Crust'];
 
 const Base = () => {
-  const { pizzaState, addBase } = useContext<PizzaContextType>(PizzaContext);
+  const {
+    pizzaState: { pizza },
+    addBase,
+  } = useContext<PizzaContextType>(PizzaContext);
 
-  const handleAddBase = (base: string) => {
-    addBase(base);
-  };
   return (
     <motion.div
       className="base container"
@@ -62,17 +74,13 @@ const Base = () => {
       <h3>Step 1: Choose Your Base</h3>
       <ul>
         {BASES.map(base => {
-          let spanClass = pizzaState.pizza.base === base ? 'active' : '';
+          let spanClass = pizza.base === base ? 'active' : '';
           return (
             <motion.li
+              variants={toppingItemVariants}
+              whileHover="hover"
               key={base}
-              onClick={() => handleAddBase(base)}
-              whileHover={{
-                scale: 1.3,
-                originX: 0,
-                color: '#f8e112',
-              }}
-              transition={{ type: 'spring', stiffness: 300 }}
+              onClick={() => addBase(base)}
             >
               <span className={spanClass}>{base}</span>
             </motion.li>
@@ -80,7 +88,7 @@ const Base = () => {
         })}
       </ul>
 
-      {pizzaState.pizza.base && (
+      {pizza.base && (
         <motion.div className="next" variants={nextVariants}>
           <Link to="/toppings">
             <motion.button variants={buttonVariants} whileHover="hover">
