@@ -1,7 +1,8 @@
-import Header from "./Header";
-import Base from "./Base";
-import Home from "./Home";
-import Order from "./Order";
-import Toppings from "./Toppings";
+import Header from './Header';
+import Base from './Base';
+import Home from './Home';
+import Order from './Order';
+import Toppings from './Toppings';
+import Loader from './Loader';
 
-export { Header, Base, Home, Order, Toppings };
+export { Header, Loader, Base, Home, Order, Toppings };
