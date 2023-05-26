@@ -33,6 +33,16 @@ const pizzaReducer = (state: PizzaState, action: PizzaAction) => {
           toppings: [...state.pizza.toppings, action.payload],
         },
       };
+
+    case PizzaActionType.CLEAR_PIZZA:
+      return {
+        ...state,
+        pizza: {
+          base: '',
+          toppings: [],
+        },
+      };
+
     default:
       return state;
   }

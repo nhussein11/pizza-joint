@@ -3,22 +3,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { PizzaContext } from '../context/pizzaProvider';
 import { PizzaContextType } from '../@types/state';
-
-const containerVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    x: '100vw',
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { type: 'spring', delay: 0.5 },
-  },
-  exit: {
-    x: '-100vw',
-    transition: { ease: 'easeInOut' },
-  },
-};
+import { buttonVariants, containerVariants } from '../animations';
 
 const toppingItemVariants: Variants = {
   hover: {
@@ -28,19 +13,6 @@ const toppingItemVariants: Variants = {
     transition: {
       type: 'spring',
       stiffness: 300,
-    },
-  },
-};
-
-const buttonVariants: Variants = {
-  hover: {
-    scale: 1.1,
-    textShadow: '0px 0px 8px rgb(255,255,255)',
-    boxShadow: '0px 0px 8px rgb(255,255,255)',
-    transition: {
-      duration: 0.4,
-      repeat: Infinity,
-      repeatType: 'reverse',
     },
   },
 };

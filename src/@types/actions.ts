@@ -6,6 +6,7 @@ export interface PizzaAction {
 export const enum PizzaActionType {
   ADD_BASE,
   HANDLE_TOPPING,
+  CLEAR_PIZZA,
 }
 
 export interface ModalAction {
