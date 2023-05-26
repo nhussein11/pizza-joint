@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <header>
       <div className="logo">
@@ -17,7 +19,14 @@ const Header = () => {
           <path fill="none" d="M50 30 L50 -10 C50 -10 90 -10 90 30 Z" />
         </svg>
       </div>
-      <motion.div initial={{ y: -250 }} animate={{ y: -10 }} transition={{delay:0.5, type: "spring", stiffness:100}} className="title">
+      <motion.div
+        initial={{ y: -250 }}
+        animate={{ y: -10 }}
+        transition={{ delay: 0.5, type: 'spring', stiffness: 100 }}
+        whileHover={{ cursor: 'pointer' }}
+        className="title"
+        onClick={() => navigate('/')}
+      >
         <h1>Pizza Joint</h1>
       </motion.div>
     </header>

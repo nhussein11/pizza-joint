@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import { BrowserRouter as Router } from 'react-router-dom';
+import PizzaProvider from './context/pizzaProvider.tsx';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Router>
-      <App />
+      <PizzaProvider>
+        <App />
+      </PizzaProvider>
     </Router>
   </React.StrictMode>
 );

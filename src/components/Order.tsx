@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import { PizzaContext } from '../context/pizzaProvider';
 
 const containerVariants = {
   hidden: {
@@ -29,6 +31,9 @@ const childVariants = {
 
 // TODO: fix this any type
 const Order = ({ pizza }: any) => {
+  const pizzaState = useContext(PizzaContext);
+  console.log(pizzaState);
+
   return (
     <motion.div
       className="container order"

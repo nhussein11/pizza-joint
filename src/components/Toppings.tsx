@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 const containerVariants = {
@@ -30,17 +31,26 @@ const buttonVariants = {
   },
 };
 
+const TOPPINGS = [
+  'mushrooms',
+  'peppers',
+  'onions',
+  'olives',
+  'extra cheese',
+  'tomatoes',
+];
 // TODO: fix this any type
-const Toppings = ({ addTopping, pizza }: any) => {
-  let toppings = [
-    'mushrooms',
-    'peppers',
-    'onions',
-    'olives',
-    'extra cheese',
-    'tomatoes',
-  ];
-
+const Toppings = () => {
+  // const { pizza } = useContext(appStore);
+  // const { addTopping } = pizzaReducer();
+  //
+  const pizza = {
+    base: '',
+    toppings: [],
+  };
+  const addTopping = (topping: string) => {
+    console.log('addTopping', topping);
+  };
   return (
     <motion.div
       className="toppings container"
@@ -51,7 +61,7 @@ const Toppings = ({ addTopping, pizza }: any) => {
     >
       <h3>Step 2: Choose Toppings</h3>
       <ul>
-        {toppings.map(topping => {
+        {TOPPINGS.map(topping => {
           let spanClass = pizza.toppings.includes(topping) ? 'active' : '';
           return (
             <motion.li

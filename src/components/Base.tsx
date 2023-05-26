@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { PizzaContext } from '../context/pizzaProvider';
+import { useContext } from 'react';
 
 const containerVariants = {
   hidden: {
@@ -40,10 +42,13 @@ const buttonVariants = {
   },
 };
 
-//TODO: fix this any
-const Base = ({ addBase, pizza }: any) => {
-  const bases = ['Classic', 'Thin & Crispy', 'Thick Crust'];
+const BASES = ['Classic', 'Thin & Crispy', 'Thick Crust'];
+const Base = () => {
+  const { pizzaState, addBase } = useContext(PizzaContext);
 
+  const handleAddBase = (base: string) => {
+    addBase(base);
+  };
   return (
     <motion.div
       className="base container"
@@ -52,14 +57,15 @@ const Base = ({ addBase, pizza }: any) => {
       animate="visible"
       exit="exit"
     >
+      <pre> {JSON.stringify(pizzaState, null, 2)}</pre>
       <h3>Step 1: Choose Your Base</h3>
       <ul>
-        {bases.map(base => {
-          let spanClass = pizza.base === base ? 'active' : '';
+        {BASES.map(base => {
+          let spanClass = pizzaState.pizza.base === base ? 'active' : '';
           return (
             <motion.li
               key={base}
-              onClick={() => addBase(base)}
+              onClick={() => handleAddBase(base)}
               whileHover={{
                 scale: 1.3,
                 originX: 0,
@@ -73,7 +79,7 @@ const Base = ({ addBase, pizza }: any) => {
         })}
       </ul>
 
-      {pizza.base && (
+      {pizzaState.pizza.base && (
         <motion.div className="next" variants={nextVariants}>
           <Link to="/toppings">
             <motion.button variants={buttonVariants} whileHover="hover">
